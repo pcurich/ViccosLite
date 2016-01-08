@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{44591BC7-23BA-4E90-9CCD-A60E64A32E0D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ViccosLite.Data</RootNamespace>
+    <AssemblyName>ViccosLite.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServerCompact">
+      <HintPath>..\..\packages\EntityFramework.SqlServerCompact.6.1.3\lib\net45\EntityFramework.SqlServerCompact.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.SqlServer.Compact.4.0.8876.1\lib\net40\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\EfDataProviderManager.cs" />
+    <Compile Include="Entities\EfRepository.cs" />
+    <Compile Include="Entities\EfStartUpTask.cs" />
+    <Compile Include="Entities\ISoftContext.cs" />
+    <Compile Include="Entities\SoftContext.cs" />
+    <Compile Include="Extensions\DataReaderExtensions.cs" />
+    <Compile Include="Extensions\DbContextExtensions.cs" />
+    <Compile Include="Extensions\KsExtensions.cs" />
+    <Compile Include="Extensions\KsQueryableExtensions.cs" />
+    <Compile Include="Initializers\CreateCeDatabaseIfNotExists.cs" />
+    <Compile Include="Initializers\CreateTablesIfNotExist.cs" />
+    <Compile Include="Initializers\DropCreateCeDatabaseAlways.cs" />
+    <Compile Include="Initializers\DropCreateCeDatabaseIfModelChanges.cs" />
+    <Compile Include="Initializers\SqlCeInitializer.cs" />
+    <Compile Include="Mapping\Catalog\CampaignMap.cs" />
+    <Compile Include="Mapping\Catalog\CategoryMap.cs" />
+    <Compile Include="Mapping\Catalog\DetailProductMap.cs" />
+    <Compile Include="Mapping\Catalog\ProductByStoreMap.cs" />
+    <Compile Include="Mapping\Catalog\ProductByWarehouseMap.cs" />
+    <Compile Include="Mapping\Catalog\ProductMap.cs" />
+    <Compile Include="Mapping\Catalog\SupplierMap.cs" />
+    <Compile Include="Mapping\Catalog\UnidMap.cs" />
+    <Compile Include="Mapping\Orders\DetailOrderMap.cs" />
+    <Compile Include="Mapping\Orders\OrderMap.cs" />
+    <Compile Include="Mapping\Sales\CloseShopMap.cs" />
+    <Compile Include="Mapping\Sales\CustomerMap.cs" />
+    <Compile Include="Mapping\Sales\DetailInStoreMap.cs" />
+    <Compile Include="Mapping\Sales\DetailOrderMap.cs" />
+    <Compile Include="Mapping\Sales\InStoreMap.cs" />
+    <Compile Include="Mapping\Sales\OrderMap.cs" />
+    <Compile Include="Mapping\SoftEntityTypeConfiguration.cs" />
+    <Compile Include="Mapping\Stores\CompanyMap.cs" />
+    <Compile Include="Mapping\Stores\ConfigStoreMap.cs" />
+    <Compile Include="Mapping\Stores\StoreMap.cs" />
+    <Compile Include="Mapping\Security\AclRecordMap.cs" />
+    <Compile Include="Mapping\Security\PermissionRecordMap.cs" />
+    <Compile Include="Mapping\Users\UserRoleMap.cs" />
+    <Compile Include="Mapping\Users\UserMap.cs" />
+    <Compile Include="Mapping\Warehouses\DetailLogisticUnitMap.cs" />
+    <Compile Include="Mapping\Warehouses\InWarehouseMap.cs" />
+    <Compile Include="Mapping\Warehouses\LogisticUnitMap.cs" />
+    <Compile Include="Mapping\Warehouses\OutWarehouseMap.cs" />
+    <Compile Include="Mapping\Warehouses\SupplierMap.cs" />
+    <Compile Include="Mapping\Warehouses\WarehouseByStoreMap.cs" />
+    <Compile Include="Mapping\Warehouses\WarehouseMap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Provider\SqlCeDataProvider.cs" />
+    <Compile Include="Provider\SqlServerDataProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ViccosLite.Core\ViccosLite.Core.csproj">
+      <Project>{8c4393f0-dd76-4bad-929a-84d6abbdad90}</Project>
+      <Name>ViccosLite.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

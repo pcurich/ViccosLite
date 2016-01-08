@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9099EF13-3912-48E8-AFD5-CCF02C94FFD5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ViccosLite.Framework</RootNamespace>
+    <AssemblyName>ViccosLite.Framework</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <WebGreaseLibPath>..\..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac">
+      <HintPath>..\..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc">
+      <HintPath>..\..\packages\Autofac.Mvc5.3.3.4\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation">
+      <HintPath>..\..\packages\FluentValidation.6.0.0.0\lib\Net45\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PerlRegex">
+      <HintPath>..\..\packages\UserAgentStringLibrary.1.0.1211.26\lib\net451\PerlRegex.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UserAgentStringLibrary">
+      <HintPath>..\..\packages\UserAgentStringLibrary.1.0.1211.26\lib\net451\UserAgentStringLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <HintPath>..\..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Attributes\Admin\AdminAuthorizeAttribute.cs" />
+    <Compile Include="Attributes\Admin\AdminValidateIpAddressAttribute.cs" />
+    <Compile Include="Attributes\FormValueRequiredAttribute.cs" />
+    <Compile Include="Attributes\ParameterBasedOnFormNameAndValueAttribute.cs" />
+    <Compile Include="Attributes\ParameterBasedOnFormNameAttribute.cs" />
+    <Compile Include="Attributes\StoreClosedAttribute.cs" />
+    <Compile Include="Attributes\StoreIpAddressAttribute.cs" />
+    <Compile Include="Attributes\UserLastActivityAttribute.cs" />
+    <Compile Include="Context\WebStoreContext.cs" />
+    <Compile Include="Context\WebWorkContext.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="DependencyRegistrar.cs" />
+    <Compile Include="Events\AdminTabStripCreated.cs" />
+    <Compile Include="Events\ProductSearchEvent.cs" />
+    <Compile Include="Html\Extensions.cs" />
+    <Compile Include="Html\HtmlExtensions.cs" />
+    <Compile Include="Html\UrlHelperExtensions.cs" />
+    <Compile Include="Kendoui\DataSourceRequest.cs" />
+    <Compile Include="Kendoui\DataSourceResult.cs" />
+    <Compile Include="Kendoui\Dynamic.cs" />
+    <Compile Include="Kendoui\Filter.cs" />
+    <Compile Include="Kendoui\ModelStateExtensions.cs" />
+    <Compile Include="Kendoui\QueryableExtensions.cs" />
+    <Compile Include="Kendoui\Sort.cs" />
+    <Compile Include="Menu\SiteMapNode.cs" />
+    <Compile Include="Menu\XmlSiteMap.cs" />
+    <Compile Include="Mvc\BaseSoftModel.cs" />
+    <Compile Include="Mvc\CommaSeparatedModelBinder.cs" />
+    <Compile Include="Mvc\DependencyRegistrarExtensions.cs" />
+    <Compile Include="Mvc\IModelAttribute.cs" />
+    <Compile Include="Mvc\NullJsonResult.cs" />
+    <Compile Include="Mvc\SoftMetadataProvider.cs" />
+    <Compile Include="Mvc\SoftModelBinder.cs" />
+    <Compile Include="Mvc\Routes\GuidConstraint.cs" />
+    <Compile Include="Mvc\Routes\IRouteProvider.cs" />
+    <Compile Include="Mvc\Routes\IRoutePublisher.cs" />
+    <Compile Include="Mvc\Routes\RoutePublisher.cs" />
+    <Compile Include="Mvc\XmlDownloadResult.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RemotePost.cs" />
+    <Compile Include="Security\FilePermissionHelper.cs" />
+    <Compile Include="SoftResourceDisplayName.cs" />
+    <Compile Include="UI\AsIsBundleOrderer.cs" />
+    <Compile Include="UI\DataListExtensions.cs" />
+    <Compile Include="UI\IPageHeadBuilder.cs" />
+    <Compile Include="UI\LayoutExtensions.cs" />
+    <Compile Include="UI\NotifyType.cs" />
+    <Compile Include="UI\PageHeadBuilder.cs" />
+    <Compile Include="UI\Paging\BasePageableModel.cs" />
+    <Compile Include="UI\Paging\IPageableModel.cs" />
+    <Compile Include="UI\Paging\Pager.cs" />
+    <Compile Include="UI\ResourceLocation.cs" />
+    <Compile Include="Validators\BaseSoftValidator.cs" />
+    <Compile Include="Validators\CreditCardPropertyValidator.cs" />
+    <Compile Include="Validators\SoftValidatorFactory.cs" />
+    <Compile Include="Validators\ValidatorExtensions.cs" />
+    <Compile Include="ViewEngines\Razor\WebViewPage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Libraries\ViccosLite.Core\ViccosLite.Core.csproj">
+      <Project>{8C4393F0-DD76-4BAD-929A-84D6ABBDAD90}</Project>
+      <Name>ViccosLite.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\ViccosLite.Data\ViccosLite.Data.csproj">
+      <Project>{44591BC7-23BA-4E90-9CCD-A60E64A32E0D}</Project>
+      <Name>ViccosLite.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Libraries\ViccosLite.Services\ViccosLite.Services.csproj">
+      <Project>{5FE10D3B-1B34-4EC1-9EBE-D1A6197A4D1F}</Project>
+      <Name>ViccosLite.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <Compile Include="Mvc\DeleteConfirmationModel.cs" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

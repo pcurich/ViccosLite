@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8C4393F0-DD76-4BAD-929A-84D6ABBDAD90}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ViccosLite.Core</RootNamespace>
+    <AssemblyName>ViccosLite.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\..\packages\Autofac.3.5.2\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc">
+      <HintPath>..\..\packages\Autofac.Mvc5.3.3.4\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseEntity.cs" />
+    <Compile Include="Caching\CacheExtensions.cs" />
+    <Compile Include="Caching\ICacheManager.cs" />
+    <Compile Include="Caching\MemoryCacheManager.cs" />
+    <Compile Include="Caching\PerRequestCacheManager.cs" />
+    <Compile Include="CommonHelper.cs" />
+    <Compile Include="ComponentModel\GenericListTypeConverter.cs" />
+    <Compile Include="ComponentModel\WriteLockDisposable.cs" />
+    <Compile Include="Configuration\Config.cs" />
+    <Compile Include="Configuration\ISettings.cs" />
+    <Compile Include="Data\BaseDataProviderManager.cs" />
+    <Compile Include="Data\DataSettings.cs" />
+    <Compile Include="Data\DataSettingsHelper.cs" />
+    <Compile Include="Data\DataSettingsManager.cs" />
+    <Compile Include="Data\IDataProvider.cs" />
+    <Compile Include="Data\IRepository.cs" />
+    <Compile Include="Domain\Catalog\Category.cs" />
+    <Compile Include="Domain\Catalog\CategoryExtensions.cs" />
+    <Compile Include="Domain\Catalog\DetailProduct.cs" />
+    <Compile Include="Domain\Catalog\PriceType.cs" />
+    <Compile Include="Domain\Catalog\Product.cs" />
+    <Compile Include="Domain\Catalog\ProductByStore.cs" />
+    <Compile Include="Domain\Catalog\ProductType.cs" />
+    <Compile Include="Domain\Orders\DetailOrder.cs" />
+    <Compile Include="Domain\Orders\DetailOrderType.cs" />
+    <Compile Include="Domain\Orders\Order.cs" />
+    <Compile Include="Domain\Orders\OrderStatus.cs" />
+    <Compile Include="Domain\Warehouses\InWarehouse.cs" />
+    <Compile Include="Domain\Warehouses\OutWarehouse.cs" />
+    <Compile Include="Domain\Warehouses\Supplier.cs" />
+    <Compile Include="Domain\Catalog\Unid.cs" />
+    <Compile Include="Domain\Configuration\Setting.cs" />
+    <Compile Include="Domain\Logging\Log.cs" />
+    <Compile Include="Domain\Logging\LogLevel.cs" />
+    <Compile Include="Domain\Sales\CloseShop.cs" />
+    <Compile Include="Domain\Sales\Customer.cs" />
+    <Compile Include="Domain\Sales\DetailInStore.cs" />
+    <Compile Include="Domain\Sales\DetailOrder.cs" />
+    <Compile Include="Domain\Sales\InStore.cs" />
+    <Compile Include="Domain\Sales\Order.cs" />
+    <Compile Include="Domain\Sales\PaymentMethod.cs" />
+    <Compile Include="Domain\Sales\VoucherType.cs" />
+    <Compile Include="Domain\Settings\Security\SecuritySettings.cs" />
+    <Compile Include="Domain\Settings\Seo\PageTitleSeoAdjustment.cs" />
+    <Compile Include="Domain\Settings\Seo\SeoSettings.cs" />
+    <Compile Include="Domain\Settings\Seo\WwwRequirement.cs" />
+    <Compile Include="Domain\Stores\Company.cs" />
+    <Compile Include="Domain\Stores\ConfigStore.cs" />
+    <Compile Include="Domain\Stores\Store.cs" />
+    <Compile Include="Domain\Stores\StoreExtensions.cs" />
+    <Compile Include="Domain\Stores\StoreMapping.cs" />
+    <Compile Include="Domain\Task\ScheduleTask.cs" />
+    <Compile Include="Domain\Security\AclRecord.cs" />
+    <Compile Include="Domain\Security\PermissionRecord.cs" />
+    <Compile Include="Domain\Users\SystemUserNames.cs" />
+    <Compile Include="Domain\Users\SystemUserRoleNames.cs" />
+    <Compile Include="Domain\Users\UserExtensions.cs" />
+    <Compile Include="Domain\Users\UserRole.cs" />
+    <Compile Include="Domain\Users\User.cs" />
+    <Compile Include="Domain\Warehouses\DetailLogisticUnit.cs" />
+    <Compile Include="Domain\Warehouses\LogisticUnit.cs" />
+    <Compile Include="Domain\Warehouses\Warehouse.cs" />
+    <Compile Include="Domain\Warehouses\WarehouseByStore.cs" />
+    <Compile Include="Events\EntityDeleted.cs" />
+    <Compile Include="Events\EntityInserted.cs" />
+    <Compile Include="Events\EntityUpdated.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="Fakes\FakeHttpContext.cs" />
+    <Compile Include="Fakes\FakeHttpExtensions.cs" />
+    <Compile Include="Fakes\FakeHttpRequest.cs" />
+    <Compile Include="Fakes\FakeHttpResponse.cs" />
+    <Compile Include="Fakes\FakeHttpSessionState.cs" />
+    <Compile Include="Fakes\FakeIdentity.cs" />
+    <Compile Include="Fakes\FakePrincipal.cs" />
+    <Compile Include="Infrastructure\AppDomainTypeFinder.cs" />
+    <Compile Include="Infrastructure\DependencyManagement\ContainerManager.cs" />
+    <Compile Include="Infrastructure\DependencyManagement\IDependencyRegistrar.cs" />
+    <Compile Include="Infrastructure\EngineContext.cs" />
+    <Compile Include="Infrastructure\IEngine.cs" />
+    <Compile Include="Infrastructure\IStartupTask.cs" />
+    <Compile Include="Infrastructure\ITypeFinder.cs" />
+    <Compile Include="Infrastructure\Patterns\Singleton.cs" />
+    <Compile Include="Infrastructure\SoftEngine.cs" />
+    <Compile Include="Infrastructure\WebAppTypeFinder.cs" />
+    <Compile Include="IPagedList.cs" />
+    <Compile Include="IStoreContext.cs" />
+    <Compile Include="IWebHelper.cs" />
+    <Compile Include="IWorkContext.cs" />
+    <Compile Include="KsException.cs" />
+    <Compile Include="PagedList.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Version.cs" />
+    <Compile Include="WebHelper.cs" />
+    <Compile Include="XmlHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Domain\Report\" />
+    <Folder Include="Html\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
