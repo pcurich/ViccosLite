@@ -5,7 +5,5 @@
         Minimum=5,
         Medium=10,
         High=15,
-        Custom =20
-
     }
 }

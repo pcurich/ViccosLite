@@ -6,7 +6,8 @@ namespace ViccosLite.Core.Domain.Catalog
 {
     public static class CategoryExtensions
     {
-        public static IList<Category> SortCategoriesForTree(this IList<Category> source, int parentId = 0, bool ignoreCategoriesWithoutExistingParent = false)
+        public static IList<Category> SortCategoriesForTree(this IList<Category> source, int parentId = 0,
+            bool ignoreCategoriesWithoutExistingParent = false)
         {
             if (source == null)
                 throw new ArgumentNullException("source");

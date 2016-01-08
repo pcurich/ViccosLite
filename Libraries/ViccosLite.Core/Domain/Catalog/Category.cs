@@ -4,7 +4,7 @@ namespace ViccosLite.Core.Domain.Catalog
 {
     public class Category : BaseEntity
     {
-        public string Name { get; set; }
+        public string CategoryName { get; set; }
         public string Description { get; set; }
         public bool Published { get; set; }
         public int DisplayOrder { get; set; }

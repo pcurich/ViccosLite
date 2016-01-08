@@ -8,6 +8,7 @@ namespace ViccosLite.Data.Mapping.Sales
         {
             ToTable("Customer");
             HasKey(c => c.Id);
+            Property(p => p.DateOfControl).IsRequired().HasColumnType("datetime2");
 
             Property(c => c.BusinessName).IsRequired();
         }

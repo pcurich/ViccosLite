@@ -236,7 +236,7 @@ namespace ViccosLite.Services.Users
             return _cacheManager.Get(key, () =>
             {
                 var query = from cr in _userRoleRepository.Table
-                    orderby cr.Name
+                    orderby cr.UserRoleName
                     where (showHidden || cr.Active)
                     select cr;
                 var customerRoles = query.ToList();

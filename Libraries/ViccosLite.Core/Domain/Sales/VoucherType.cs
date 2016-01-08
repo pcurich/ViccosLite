@@ -2,8 +2,8 @@
 {
     public enum VoucherType
     {
-        Factura=02,
-        BoletaVenta=04,
-        Ticket=13
+        Invoice = 02,
+        Bill=04,
+        Ticket = 13 // Ticket or TicketInvoice
     }
 }

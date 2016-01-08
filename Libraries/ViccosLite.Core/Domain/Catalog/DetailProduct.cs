@@ -4,7 +4,7 @@
     {
         public int ProductParentId { get; set; }
         public string ProductParentName { get; set; }
-        public int ProductNameOfNameDetailId { get; set; }
+        public int ProductNameOfDetailId { get; set; }
         public string ProductNameOfDetail { get; set; }
 
         public decimal PriceCost { get; set; }//solo para efectos informativos

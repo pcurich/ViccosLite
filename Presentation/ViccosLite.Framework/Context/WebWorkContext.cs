@@ -98,7 +98,7 @@ namespace ViccosLite.Framework.Context
             return _httpContext.Request.Cookies[USER_COOKIE_NAME];
         }
 
-        protected virtual void SetCustomerCookie(Guid userGuid)
+        protected virtual void SetUserCookie(Guid userGuid)
         {
             if (_httpContext != null && _httpContext.Response != null)
             {

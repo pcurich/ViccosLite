@@ -7,13 +7,13 @@ namespace ViccosLite.Core.Domain.Catalog
         #region Keys
 
         public int ProductId { get; set; }
-        public Product Product { get; set; }
+        public virtual Product Product { get; set; }
         public int StoreId { get; set; }
-        public Store Store { get; set; }
+        public virtual Store Store { get; set; }
 
         #endregion
 
-        public string Sku { get; protected set; }
+        public string Code { get; protected set; }
 
         #region Price
         
@@ -21,7 +21,6 @@ namespace ViccosLite.Core.Domain.Catalog
         public decimal MinimumPriceSale { get; set; }
         public decimal MediumPriceSale { get; set; }
         public decimal HighPriceSale { get; set; }
-        public decimal CustomPriceSale { get; set; }
 
         public int PriceTypeId { get; set; }
 
@@ -34,8 +33,8 @@ namespace ViccosLite.Core.Domain.Catalog
         #endregion
 
         #region Quantity
-        public double QuantityInStore { get; set; }
-        public double MinimunQuantityInStore { get; set; }
+        public double QuantityInStore { get; set; } //Aumenta x OutWarehouse, Disminuye x DetailSale
+        public double MinimunQuantityInStore { get; set; } //Para dar alerta
 
         #endregion
 

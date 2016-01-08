@@ -14,11 +14,11 @@ namespace ViccosLite.Core.Domain.Users
         public string UserName { get; set; }
         public string Password { get; set; }
         public bool RememberMe { get; set; }
-        public string Ip { get; set; }
         public string Name { get; set; }
-        public string LastName { get; set; }
         public string FirstName { get; set; }
+        public string LastName { get; set; }
         public string CompleteName { get; set; }
+        public string Dni { get; set; }       
         public string Address { get; set; }
         public string Department { get; set; }
         public string Province { get; set; }
@@ -33,20 +33,20 @@ namespace ViccosLite.Core.Domain.Users
         public string SystemName { get; set; }
         public DateTime LastLoginDateUtc { get; set; }
 
-        private List<UserRole> _userRoles;
-
-        public virtual List<UserRole> UserRoles
-        {
-            get { return _userRoles ?? (_userRoles = new List<UserRole>()); }
-            protected set { _userRoles = value; }
-        }
-
         private List<Store> _stores;
 
         public virtual List<Store> Stores
         {
             get { return _stores ?? (_stores = new List<Store>()); }
-            protected set { _stores = value; }
+            set { _stores = value; }
         }
+
+        private List<UserRole> _userRoles;
+
+        public virtual List<UserRole> UserRoles
+        {
+            get { return _userRoles ?? (_userRoles = new List<UserRole>()); }
+            set { _userRoles = value; }
+        } 
     }
 }

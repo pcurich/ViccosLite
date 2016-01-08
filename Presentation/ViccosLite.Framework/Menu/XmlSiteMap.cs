@@ -71,8 +71,7 @@ namespace ViccosLite.Framework.Menu
             var softResource = GetStringValueFromAttribute(xmlNode, "softResource");
             if (!string.IsNullOrEmpty(softResource))
             {
-                var localizationService = EngineContext.Current.Resolve<ILocalizationService>();
-                siteMapNode.Title = localizationService.GetResource(softResource);
+                siteMapNode.Title = softResource;
             }
             else
             {

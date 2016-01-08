@@ -8,9 +8,10 @@ namespace ViccosLite.Data.Mapping.Catalog
         {
             ToTable("Category");
             HasKey(c => c.Id);
+            Property(p => p.DateOfControl).IsRequired().HasColumnType("datetime2");
 
-            Property(c => c.Name).IsRequired();
-            Property(c => c.Name).HasMaxLength(80);
+            Property(c => c.CategoryName).IsRequired();
+            Property(c => c.CategoryName).HasMaxLength(80);
         }
     }
 }

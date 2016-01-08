@@ -6,5 +6,8 @@
         public string EntityName { get; set; }
         public int StoreId { get; set; }
         public virtual Store Store { get; set; }
+
+        //User By Store 
+
     }
 }

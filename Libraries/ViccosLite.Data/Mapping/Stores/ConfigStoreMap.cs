@@ -8,6 +8,7 @@ namespace ViccosLite.Data.Mapping.Stores
         {
             ToTable("ConfigStore");
             HasKey(p => p.Id);
+            Property(u => u.DateOfControl).IsRequired().HasColumnType("datetime2");
         }
     }
 }

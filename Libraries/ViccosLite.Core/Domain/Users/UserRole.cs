@@ -5,7 +5,7 @@ namespace ViccosLite.Core.Domain.Users
 {
     public class UserRole : BaseEntity
     {
-        public string Name { get; set; }
+        public string UserRoleName { get; set; }
 
         private List<User> _users;
         public virtual List<User> Users

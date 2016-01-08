@@ -6,15 +6,13 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
-using ViccosLite.Core;
-using ViccosLite.Core.Infrastructure;
 using ViccosLite.Framework.Mvc;
 
 namespace ViccosLite.Framework.Html
 {
     public static class HtmlExtensions
     {
-        #region 
+        #region Extensiones para el area de Admin
 
         public static MvcHtmlString Hint(this HtmlHelper helper, string value)
         {
@@ -33,7 +31,8 @@ namespace ViccosLite.Framework.Html
             return MvcHtmlString.Create(builder.ToString());
         }
 
-        public static MvcHtmlString DeleteConfirmation<T>(this HtmlHelper<T> helper, string buttonsSelector) where T : BaseSoftEntityModel
+        public static MvcHtmlString DeleteConfirmation<T>(this HtmlHelper<T> helper, string buttonsSelector)
+            where T : BaseSoftEntityModel
         {
             return DeleteConfirmation(helper, "", buttonsSelector);
         }
@@ -44,8 +43,9 @@ namespace ViccosLite.Framework.Html
             if (String.IsNullOrEmpty(actionName))
                 actionName = "Delete";
 
-            var modalId = MvcHtmlString.Create(helper.ViewData.ModelMetadata.ModelType.Name.ToLower() + "-delete-confirmation")
-                .ToHtmlString();
+            var modalId =
+                MvcHtmlString.Create(helper.ViewData.ModelMetadata.ModelType.Name.ToLower() + "-delete-confirmation")
+                    .ToHtmlString();
 
             var deleteConfirmationModel = new DeleteConfirmationModel
             {
@@ -68,7 +68,7 @@ namespace ViccosLite.Framework.Html
             window.AppendLine("if (!window.data('kendoWindow')) {");
             window.AppendLine("window.kendoWindow({");
             window.AppendLine("modal: true,");
-            window.AppendLine(string.Format("title: '{0}',", EngineContext.Current.Resolve<ILocalizationService>().GetResource("Admin.Common.AreYouSure")));
+            window.AppendLine(string.Format("title: '{0}',", "Está seguro?"));
             window.AppendLine("actions: ['Close']");
             window.AppendLine("});");
             window.AppendLine("}");
@@ -80,7 +80,8 @@ namespace ViccosLite.Framework.Html
             return MvcHtmlString.Create(window.ToString());
         }
 
-        public static MvcHtmlString SoftLabelFor<TModel, TValue>(this HtmlHelper<TModel> helper, Expression<Func<TModel, TValue>> expression, bool displayHint = true)
+        public static MvcHtmlString SoftLabelFor<TModel, TValue>(this HtmlHelper<TModel> helper,
+            Expression<Func<TModel, TValue>> expression, bool displayHint = true)
         {
             var result = new StringBuilder();
             var metadata = ModelMetadata.FromLambdaExpression(expression, helper.ViewData);
@@ -91,12 +92,11 @@ namespace ViccosLite.Framework.Html
                 var resourceDisplayName = value as SoftResourceDisplayName;
                 if (resourceDisplayName != null && displayHint)
                 {
-
                     hintResource = ""; //no hay ayuda
                     result.Append(helper.Hint(hintResource).ToHtmlString());
                 }
             }
-            result.Append(helper.LabelFor(expression, new { title = hintResource }));
+            result.Append(helper.LabelFor(expression, new {title = hintResource}));
             return MvcHtmlString.Create(result.ToString());
         }
 
@@ -105,8 +105,9 @@ namespace ViccosLite.Framework.Html
             Expression<Func<TModel, TValue>> forInputExpression,
             int activeStoreScopeConfiguration)
         {
-            var dataInputIds = new List<string> { helper.FieldIdFor(forInputExpression) };
-            return OverrideStoreCheckboxFor(helper, expression, activeStoreScopeConfiguration, null, dataInputIds.ToArray());
+            var dataInputIds = new List<string> {helper.FieldIdFor(forInputExpression)};
+            return OverrideStoreCheckboxFor(helper, expression, activeStoreScopeConfiguration, null,
+                dataInputIds.ToArray());
         }
 
         public static MvcHtmlString OverrideStoreCheckboxFor<TModel, TValue1, TValue2>(this HtmlHelper<TModel> helper,
@@ -120,9 +121,12 @@ namespace ViccosLite.Framework.Html
                 helper.FieldIdFor(forInputExpression1),
                 helper.FieldIdFor(forInputExpression2)
             };
-            return OverrideStoreCheckboxFor(helper, expression, activeStoreScopeConfiguration, null, dataInputIds.ToArray());
+            return OverrideStoreCheckboxFor(helper, expression, activeStoreScopeConfiguration, null,
+                dataInputIds.ToArray());
         }
-        public static MvcHtmlString OverrideStoreCheckboxFor<TModel, TValue1, TValue2, TValue3>(this HtmlHelper<TModel> helper,
+
+        public static MvcHtmlString OverrideStoreCheckboxFor<TModel, TValue1, TValue2, TValue3>(
+            this HtmlHelper<TModel> helper,
             Expression<Func<TModel, bool>> expression,
             Expression<Func<TModel, TValue1>> forInputExpression1,
             Expression<Func<TModel, TValue2>> forInputExpression2,
@@ -135,8 +139,10 @@ namespace ViccosLite.Framework.Html
                 helper.FieldIdFor(forInputExpression2),
                 helper.FieldIdFor(forInputExpression3)
             };
-            return OverrideStoreCheckboxFor(helper, expression, activeStoreScopeConfiguration, null, dataInputIds.ToArray());
+            return OverrideStoreCheckboxFor(helper, expression, activeStoreScopeConfiguration, null,
+                dataInputIds.ToArray());
         }
+
         public static MvcHtmlString OverrideStoreCheckboxFor<TModel>(this HtmlHelper<TModel> helper,
             Expression<Func<TModel, bool>> expression,
             string parentContainer,
@@ -144,6 +150,7 @@ namespace ViccosLite.Framework.Html
         {
             return OverrideStoreCheckboxFor(helper, expression, activeStoreScopeConfiguration, parentContainer);
         }
+
         private static MvcHtmlString OverrideStoreCheckboxFor<TModel>(this HtmlHelper<TModel> helper,
             Expression<Func<TModel, bool>> expression,
             int activeStoreScopeConfiguration,
@@ -158,10 +165,11 @@ namespace ViccosLite.Framework.Html
             {
                 //render only when a certain store is chosen
                 const string CSS_CLASS = "multi-store-override-option";
-                string dataInputSelector = "";
+                var dataInputSelector = "";
                 if (!String.IsNullOrEmpty(parentContainer))
                 {
-                    dataInputSelector = "#" + parentContainer + " input, #" + parentContainer + " textarea, #" + parentContainer + " select";
+                    dataInputSelector = "#" + parentContainer + " input, #" + parentContainer + " textarea, #" +
+                                        parentContainer + " select";
                 }
                 if (datainputIds != null && datainputIds.Length > 0)
                 {
@@ -170,9 +178,9 @@ namespace ViccosLite.Framework.Html
                 var onClick = string.Format("checkOverriddenStoreValue(this, '{0}')", dataInputSelector);
                 result.Append(helper.CheckBoxFor(expression, new Dictionary<string, object>
                 {
-                    { "class", CSS_CLASS },
-                    { "onclick", onClick },
-                    { "data-for-input-selector", dataInputSelector },
+                    {"class", CSS_CLASS},
+                    {"onclick", onClick},
+                    {"data-for-input-selector", dataInputSelector}
                 }));
             }
             return MvcHtmlString.Create(result.ToString());
@@ -188,8 +196,9 @@ namespace ViccosLite.Framework.Html
                 indexToSelect = 0;
 
             //required validation
-            return indexToSelect == currentIndex ? 
-                new MvcHtmlString(" class='k-state-active'") : new MvcHtmlString("");
+            return indexToSelect == currentIndex
+                ? new MvcHtmlString(" class='k-state-active'")
+                : new MvcHtmlString("");
         }
 
         #endregion
@@ -285,25 +294,27 @@ namespace ViccosLite.Framework.Html
 
             return MvcHtmlString.Create(string.Concat(daysList, monthsList, yearsList));
         }
-        
-        public static MvcHtmlString LabelFor<TModel, TValue>(this HtmlHelper<TModel> html, Expression<Func<TModel, TValue>> expression, object htmlAttributes, string suffix)
+
+        public static MvcHtmlString LabelFor<TModel, TValue>(this HtmlHelper<TModel> html,
+            Expression<Func<TModel, TValue>> expression, object htmlAttributes, string suffix)
         {
             var htmlFieldName = ExpressionHelper.GetExpressionText(expression);
             var metadata = ModelMetadata.FromLambdaExpression(expression, html.ViewData);
-            var resolvedLabelText = metadata.DisplayName ?? (metadata.PropertyName ?? htmlFieldName.Split(new[] { '.' }).Last());
+            var resolvedLabelText = metadata.DisplayName ?? (metadata.PropertyName ?? htmlFieldName.Split('.').Last());
             if (string.IsNullOrEmpty(resolvedLabelText))
             {
                 return MvcHtmlString.Empty;
             }
             var tag = new TagBuilder("label");
-            tag.Attributes.Add("for", TagBuilder.CreateSanitizedId(html.ViewContext.ViewData.TemplateInfo.GetFullHtmlFieldId(htmlFieldName)));
+            tag.Attributes.Add("for",
+                TagBuilder.CreateSanitizedId(html.ViewContext.ViewData.TemplateInfo.GetFullHtmlFieldId(htmlFieldName)));
             if (!String.IsNullOrEmpty(suffix))
             {
                 resolvedLabelText = String.Concat(resolvedLabelText, suffix);
             }
             tag.SetInnerText(resolvedLabelText);
 
-            var dictionary = ((IDictionary<string, object>)HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
+            var dictionary = ((IDictionary<string, object>) HtmlHelper.AnonymousObjectToHtmlAttributes(htmlAttributes));
             tag.MergeAttributes(dictionary, true);
 
             return MvcHtmlString.Create(tag.ToString(TagRenderMode.Normal));

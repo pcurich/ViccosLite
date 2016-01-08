@@ -45,7 +45,7 @@ namespace ViccosLite.Services.Catalog
             if (!showHidden)
                 query = query.Where(c => c.Published);
             if (!String.IsNullOrWhiteSpace(categoryName))
-                query = query.Where(c => c.Name.Contains(categoryName));
+                query = query.Where(c => c.CategoryName.Contains(categoryName));
             query = query.Where(c => !c.Deleted);
             query = query.OrderBy(c => c.ParentCategoryId).ThenBy(c => c.DisplayOrder);
             //Store mapping

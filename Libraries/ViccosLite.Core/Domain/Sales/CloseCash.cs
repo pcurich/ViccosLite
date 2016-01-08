@@ -3,12 +3,12 @@ using ViccosLite.Core.Domain.Users;
 
 namespace ViccosLite.Core.Domain.Sales
 {
-    public class CloseShop : BaseEntity
+    public class CloseCash : BaseEntity
     {
         public int UserId { get; set; }
         public User User { get; set; }
 
-        public DateTime DateTime { get; set; }
+        public DateTime DateOfCloseShop { get; set; }
 
         public decimal TotalSalesWithoutDiscount { get; set; }
         public decimal TotalDiscount { get; set; }
@@ -44,14 +44,14 @@ namespace ViccosLite.Core.Domain.Sales
 
         #endregion
 
-        #region Boleta
+        #region Bill
 
-        public int QuantityOfBoleta { get; set; }
-        public int QuantityOfBoletaCancelled { get; set; }
-        public string StartBoleta { get; set; }
-        public string EndBoleta { get; set; }
-        public decimal TotalBoletaSoles { get; set; }
-        public decimal TotalBoletaDollar { get; set; }
+        public int QuantityOfBill { get; set; }
+        public int QuantityOfBillCancelled { get; set; }
+        public string StartBill { get; set; }
+        public string EndBill { get; set; }
+        public decimal TotalBillSoles { get; set; }
+        public decimal TotalBillDollar { get; set; }
 
         #endregion
 

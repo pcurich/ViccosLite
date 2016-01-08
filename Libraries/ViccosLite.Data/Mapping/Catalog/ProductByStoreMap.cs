@@ -8,6 +8,15 @@ namespace ViccosLite.Data.Mapping.Catalog
         {
             ToTable("ProductByStore");
             HasKey(p => p.Id);
+            Property(p => p.DateOfControl).IsRequired().HasColumnType("datetime2");
+
+            Property(p => p.Code).IsRequired();
+            Property(p => p.PriceCost).HasPrecision(18, 4);
+            Property(p => p.MinimumPriceSale).HasPrecision(18, 4);
+            Property(p => p.MediumPriceSale).HasPrecision(18, 4);
+            Property(p => p.HighPriceSale).HasPrecision(18, 4);
+
+            Ignore(p => p.PriceType);
 
             HasRequired(p => p.Store)
                 .WithMany(p => p.ProductByStores)
@@ -16,9 +25,6 @@ namespace ViccosLite.Data.Mapping.Catalog
             HasRequired(p => p.Product)
                 .WithMany(p => p.ProductByStores)
                 .HasForeignKey(p => p.ProductId);
-
-            Property(p => p.PriceCost).HasPrecision(18, 4);
-            Property(p => p.PriceSale).HasPrecision(18, 4);
         }
     }
 }

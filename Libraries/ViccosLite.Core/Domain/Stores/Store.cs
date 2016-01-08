@@ -13,16 +13,16 @@ namespace ViccosLite.Core.Domain.Stores
         public string Departamento { get; set; }
         public string Provincia { get; set; }
         public string Distrito { get; set; }
-        public string Addredd1 { get; set; }
-        public string Addredd2 { get; set; }
-        public string Addredd3 { get; set; }
+        public string Address1 { get; set; }
+        public string Address2 { get; set; }
+        public string Address3 { get; set; }
         public string PrinterSeries { get; set; }
-        public virtual Company Company { get; set; }
         public virtual int CompanyId { get; set; }
+        public virtual Company Company { get; set; }
         public int ConfigStoreId { get; set; }
         public virtual ConfigStore ConfigStore { get; set; }
         public virtual List<User> Users { get; set; }
-        public virtual List<WarehouseByStore>  WarehouseByStores { get; set; }
+        public virtual List<WarehouseByStore> WarehouseByStores { get; set; }
         public virtual List<ProductByStore> ProductByStores { get; set; }
 
         /// <summary>

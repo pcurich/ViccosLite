@@ -69,22 +69,18 @@
     <Compile Include="Initializers\DropCreateCeDatabaseAlways.cs" />
     <Compile Include="Initializers\DropCreateCeDatabaseIfModelChanges.cs" />
     <Compile Include="Initializers\SqlCeInitializer.cs" />
-    <Compile Include="Mapping\Catalog\CampaignMap.cs" />
     <Compile Include="Mapping\Catalog\CategoryMap.cs" />
     <Compile Include="Mapping\Catalog\DetailProductMap.cs" />
     <Compile Include="Mapping\Catalog\ProductByStoreMap.cs" />
-    <Compile Include="Mapping\Catalog\ProductByWarehouseMap.cs" />
     <Compile Include="Mapping\Catalog\ProductMap.cs" />
-    <Compile Include="Mapping\Catalog\SupplierMap.cs" />
-    <Compile Include="Mapping\Catalog\UnidMap.cs" />
+    <Compile Include="Mapping\Configuration\SettingMap.cs" />
+    <Compile Include="Mapping\Logging\LogMap.cs" />
     <Compile Include="Mapping\Orders\DetailOrderMap.cs" />
     <Compile Include="Mapping\Orders\OrderMap.cs" />
-    <Compile Include="Mapping\Sales\CloseShopMap.cs" />
+    <Compile Include="Mapping\Sales\CloseCashMap.cs" />
     <Compile Include="Mapping\Sales\CustomerMap.cs" />
-    <Compile Include="Mapping\Sales\DetailInStoreMap.cs" />
-    <Compile Include="Mapping\Sales\DetailOrderMap.cs" />
-    <Compile Include="Mapping\Sales\InStoreMap.cs" />
-    <Compile Include="Mapping\Sales\OrderMap.cs" />
+    <Compile Include="Mapping\Sales\DetailSaleMap.cs" />
+    <Compile Include="Mapping\Sales\SaleMap.cs" />
     <Compile Include="Mapping\SoftEntityTypeConfiguration.cs" />
     <Compile Include="Mapping\Stores\CompanyMap.cs" />
     <Compile Include="Mapping\Stores\ConfigStoreMap.cs" />
@@ -114,6 +110,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
