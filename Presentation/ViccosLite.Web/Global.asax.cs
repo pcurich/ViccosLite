@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Threading;
 using System.Web;
 using System.Web.Mvc;
@@ -15,10 +13,11 @@ using ViccosLite.Framework.Mvc.Routes;
 using ViccosLite.Framework.Validators;
 using ViccosLite.Services.Logging;
 using ViccosLite.Services.Tasks;
+using ViccosLite.Web.Controllers;
 
 namespace ViccosLite.Web
 {
-    public class WebApiApplication : System.Web.HttpApplication
+    public class WebApiApplication : HttpApplication
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
@@ -32,8 +31,8 @@ namespace ViccosLite.Web
             routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-                new[] { "ViccosLite.Web.Controllers" });
+                new {controller = "Home", action = "Index", id = UrlParameter.Optional},
+                new[] {"ViccosLite.Web.Controllers"});
         }
 
         protected void Application_Start()
@@ -42,7 +41,7 @@ namespace ViccosLite.Web
             EngineContext.Initialize(false);
 
             var databaseInstalled = DataSettingsHelper.DatabaseIsInstalled();
-            
+
             //Agregamos algunas funcionalidades arriba del default ModelMetadataProvider
             ModelMetadataProviders.Current = new SoftMetadataProvider();
 
@@ -100,7 +99,6 @@ namespace ViccosLite.Web
 
             if (!DataSettingsHelper.DatabaseIsInstalled())
                 return;
-
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
@@ -187,7 +185,7 @@ namespace ViccosLite.Web
 
             //ignore 404 HTTP errors
             var httpException = exc as HttpException;
-            if (httpException != null && httpException.GetHttpCode() == 404 )
+            if (httpException != null && httpException.GetHttpCode() == 404)
                 return;
 
             try

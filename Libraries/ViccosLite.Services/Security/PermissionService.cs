@@ -97,7 +97,7 @@ namespace ViccosLite.Services.Security
                 : _permissionPecordRepository.GetById(permissionId);
         }
 
-        public PermissionRecord GetPermissionRecordBySystemName(string systemName)
+        public virtual PermissionRecord GetPermissionRecordBySystemName(string systemName)
         {
             if (String.IsNullOrWhiteSpace(systemName))
                 return null;
@@ -111,7 +111,7 @@ namespace ViccosLite.Services.Security
             return permisionRecord;
         }
 
-        public IList<PermissionRecord> GetAllPermissionRecords()
+        public virtual IList<PermissionRecord> GetAllPermissionRecords()
         {
             var query = from pr in _permissionPecordRepository.Table
                         orderby pr.Name
@@ -121,7 +121,7 @@ namespace ViccosLite.Services.Security
             return permision;
         }
 
-        public void InsertPermissionRecord(PermissionRecord permission)
+        public virtual void InsertPermissionRecord(PermissionRecord permission)
         {
             if (permission == null)
                 throw new ArgumentNullException("permission");
@@ -130,13 +130,25 @@ namespace ViccosLite.Services.Security
             _cacheManager.RemoveByPattern(PERMISSIONS_PATTERN_KEY);
         }
 
-        public void UpdatePermissionRecord(PermissionRecord permission)
+        public virtual void UpdatePermissionRecord(PermissionRecord permission)
         {
             if (permission == null)
                 throw new ArgumentNullException("permission");
 
             _permissionPecordRepository.Update(permission);
             _cacheManager.RemoveByPattern(PERMISSIONS_PATTERN_KEY);
+        }
+
+        public void InstallPermissions(IPermissionProvider permissionProvider)
+        {
+            //TODO
+            throw new NotImplementedException();
+        }
+
+        public void UninstallPermissions(IPermissionProvider permissionProvider)
+        {
+            //TODO
+            throw new NotImplementedException();
         }
 
         public bool Authorize(PermissionRecord permission)
